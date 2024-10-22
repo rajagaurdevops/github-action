@@ -1,0 +1,26 @@
+name: raja workflows
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  raja-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone another repository
+        run: |
+          git clone https://github.com/rajagaurdevops/c-program.git
+          ls
+          cat c-program/README.md  # Adjust the path if needed
+
+      - name: Install Nginx
+        run: |
+          sudo apt update
+          sudo apt install -y nginx
+          sudo netstat -plunt
+          sudo systemctl status nginx
